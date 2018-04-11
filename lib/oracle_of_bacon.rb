@@ -52,6 +52,13 @@ class OracleOfBacon
     # your code here: set the @uri attribute to properly-escaped URI
     #   constructed from the @from, @to, @api_key arguments
     
+    #http://oracleofbacon.org/cgi-bin/xml?p=my_key&a=Kevin+Bacon&b=Laurence+Olivier
+    #http://oracleofbacon.org/cgi-bin/xml?p=my_key&a=Carrie+Fisher+(I)&b=Ian+McKellen
+    
+    @uri = 'http://oracleofbacon.org/cgi-bin/xml?' + 
+            'p=' + CGI.escape(@api_key) + 
+            '&a=' + CGI.escape(@from) + 
+            '&b=' + CGI.escape(@to)
   end
       
   class Response
